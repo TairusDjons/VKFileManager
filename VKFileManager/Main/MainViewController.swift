@@ -20,51 +20,18 @@ class MainViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func login(){
-        viewModel.didTriggerAuthUser(onSuccess: {
-            let alert = UIAlertController(title: "Вы вошли", message: "Теперь можно начать работать с приложением", preferredStyle: UIAlertControllerStyle.alert)
-            
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                switch action.style{
-                case .default:
-                    print("default")
-                    
-                case .cancel:
-                    print("cancel")
-                    
-                case .destructive:
-                    print("destructive")
-                    
-                    
-                }}))
+     func login(){
+
             self.present(alert, animated: true, completion: nil)
-        }, onSessionRecovered: {
-            let alert = UIAlertController(title: "Привет", message: "Рады снова вас видеть", preferredStyle: UIAlertControllerStyle.alert)
-            
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                switch action.style{
-                case .default:
-                    print("default")
-                    
-                case .cancel:
-                    print("cancel")
-                    
-                case .destructive:
-                    print("destructive")
-                    
-                    
-                }}))
-            self.present(alert, animated: true, completion: nil)
-        }) { (err) in
-            print(err)
-            let alert = UIAlertController(title: "Так не пойдёт", message: "Необходимо войти, чтобы начать пользоваться нашим приложением", preferredStyle: UIAlertControllerStyle.alert)
-            
-            alert.addAction(UIAlertAction(title: "Войти", style: .default, handler: { action in
-                self.login()
-                
-            }))
-            self.present(alert, animated: true, completion: nil)
-        }
+         
+     }
+    
+    func alertCall(title: String, message: String, action: @escaping (UIAlertAction) -> ()) {
+    //put your realisation here
+}
+                   
+    func actionHandler(action: UIAlertAction) {
+    //handle your style here
     }
     
     override func viewDidLoad() {
